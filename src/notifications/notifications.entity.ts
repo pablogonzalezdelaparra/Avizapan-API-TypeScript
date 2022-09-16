@@ -22,8 +22,8 @@ export class Notifications {
         default: () => 'NOW()',})
     posted: Date;
 
-    @Column({type: 'time',})
-    duration: Date;
+    @Column()
+    duration: number;
 
     /* @Column()
     admin_id: Admins
