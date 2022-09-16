@@ -5,11 +5,11 @@ import { AppService } from './app.service';
 /* Database */
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AdminsModule } from './admins/admins.module';
-import { Admins } from './admins/admins.entity';
 import { CategoriesModule } from './categories/categories.module';
-import { Categories } from './categories/categories.entity';
 import { NotificationsModule } from './notifications/notifications.module';
-import { Notifications } from './notifications/notifications.entity';
+import { Admins } from 'src/admins/admins.entity';
+import { Categories } from 'src/categories/categories.entity';
+import { Notifications } from 'src/notifications/notifications.entity';
 
 @Module({
   imports: [
@@ -21,7 +21,6 @@ import { Notifications } from './notifications/notifications.entity';
       password: 'avizapan',
       database: 'avizapanDB',
       entities: [Admins, Categories, Notifications],
-      autoLoadEntities: true,
       synchronize: true,
     }),
     AdminsModule,
