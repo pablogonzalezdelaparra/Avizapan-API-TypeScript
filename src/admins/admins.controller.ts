@@ -8,6 +8,7 @@ export class AdminsController {
     /* Get all admins */
     @Get()
     async sayCategories() {
-        return "The admin list is not available!";
+        var admins = await this.Adminservice.returnAllAdmins();
+        return admins;
     }
 }

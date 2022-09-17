@@ -37,8 +37,8 @@ export class NotificationsController {
     /* Post a notification */
     @Post()
     async AddNotification(@Body() body) {
-        console.log("The data is:", body.title, body.description, body.location, body.posted, body.duration, body.adminId, body.categoryId)
-        const action = this.NotificationService.insertNotification(body.title, body.description, body.location, body.posted, body.duration, body.adminId, body.categoryId);
+        console.log("The data is:", body.title, body.description, body.location, body.duration, body.adminId, body.categoryId)
+        const action = this.NotificationService.insertNotification(body.title, body.description, body.location, body.duration, body.adminId, body.categoryId);
         return "Notification was added succesfully";
     }
 }
