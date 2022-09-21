@@ -6,9 +6,13 @@ export class AdminsController {
     constructor(private readonly Adminservice: AdminsService) { }
 
     /* Get all admins */
-    @Get()
+    @Post()
     async sayAdminAllowed(@Body() body) {
         var admin = await this.Adminservice.returnAdminAllowed(body.username, body.password);
-        return admin.id;
+        if (admin){
+            return admin.id;
+        } else{
+            return null
+        }
     }
 }
