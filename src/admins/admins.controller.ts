@@ -7,8 +7,8 @@ export class AdminsController {
 
     /* Get all admins */
     @Get()
-    async sayCategories() {
-        var admins = await this.Adminservice.returnAllAdmins();
-        return admins;
+    async sayAdminAllowed(@Body() body) {
+        var admin = await this.Adminservice.returnAdminAllowed(body.username, body.password);
+        return admin.id;
     }
 }

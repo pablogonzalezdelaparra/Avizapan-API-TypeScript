@@ -11,10 +11,12 @@ export class AdminsService {
     ) { }
 
     /* Return all admins */
-    async returnAllAdmins() {
+    async returnAdminAllowed(username, password) {
         const admins = this.AdminsRepository
-            .createQueryBuilder("admins")
-            .getMany()
+            .createQueryBuilder("admin")
+            .where("admin.username = :username", {username: username,})
+            .andWhere("admin.password = :password", {password: password})
+            .getOne()
         return admins
     }
 
