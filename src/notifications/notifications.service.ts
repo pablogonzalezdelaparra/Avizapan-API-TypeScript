@@ -15,9 +15,9 @@ export class NotificationsService {
     async returnAllNotification() {
         const notifications = this.NotificationRepository
             .createQueryBuilder("notification")
-            .leftJoinAndSelect("notification.category", "category")
+            //.leftJoinAndSelect("notification.category", "category")
             /*.where("notification.id = :id", { id: 1 })*/
-            .getMany()
+            .getRawMany()
         return notifications
     }
 
@@ -25,9 +25,9 @@ export class NotificationsService {
     async returnAllActiveNotification() {
         const notifications = this.NotificationRepository
             .createQueryBuilder("notification")
-            .leftJoinAndSelect("notification.category", "category")
-            .where("DATE_ADD(notification.posted, INTERVAL notification.duration HOUR) > CURDATE()")
-            .getMany()
+            //.leftJoinAndSelect("notification.category", "category")
+            //.where("DATE_ADD(notification.posted, INTERVAL notification.duration HOUR) > CURDATE()")
+            .getRawMany()
         return notifications
     }
 
