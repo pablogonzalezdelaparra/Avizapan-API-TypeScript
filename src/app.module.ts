@@ -10,6 +10,9 @@ import { NotificationsModule } from './notifications/notifications.module';
 import { Admins } from 'src/admins/admins.entity';
 import { Categories } from 'src/categories/categories.entity';
 import { Notifications } from 'src/notifications/notifications.entity';
+import { TokensController } from './tokens/tokens.controller';
+import { TokensModule } from './tokens/tokens.module';
+import { Tokens } from './tokens/tokens.entity';
 
 @Module({
   imports: [
@@ -20,12 +23,13 @@ import { Notifications } from 'src/notifications/notifications.entity';
       username: 'admin',
       password: 'avizapan',
       database: 'avizapanDB',
-      entities: [Admins, Categories, Notifications],
+      entities: [Admins, Categories, Notifications, Tokens],
       synchronize: true,
     }),
     AdminsModule,
     CategoriesModule,
     NotificationsModule,
+    TokensModule,
   ],
   controllers: [AppController],
   providers: [AppService],
