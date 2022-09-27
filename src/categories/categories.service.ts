@@ -14,7 +14,8 @@ export class CategoriesService {
     async returnAllCategories() {
         const categories = this.CategoriesRepository
             .createQueryBuilder("categories")
-            .getMany()
+            .select("categories.category")
+            .getOne()
         return categories
     }
 
