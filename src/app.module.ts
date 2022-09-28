@@ -10,12 +10,13 @@ import { NotificationsModule } from './notifications/notifications.module';
 import { Admins } from 'src/admins/admins.entity';
 import { Categories } from 'src/categories/categories.entity';
 import { Notifications } from 'src/notifications/notifications.entity';
-import { TokensController } from './tokens/tokens.controller';
 import { TokensModule } from './tokens/tokens.module';
 import { Tokens } from './tokens/tokens.entity';
 
+import { ScheduleModule } from '@nestjs/schedule';
+
 @Module({
-  imports: [
+  imports: [ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: '157.230.12.204',
