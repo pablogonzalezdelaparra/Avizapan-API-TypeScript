@@ -1,3 +1,4 @@
+import { Body } from '@nestjs/common';
 import { Controller, Get, Post } from '@nestjs/common';
 import { TokensService } from './tokens.service';
 
@@ -10,5 +11,11 @@ export class TokensController {
     async sayTokens() {
         var tokens = await this.TokenService.returnAllTokens();
         return tokens;
+    }
+
+    @Post()
+    async AddToken(@Body() body){
+        const action = this.TokenService.insertToken(body.token);
+        return "Se ingreso el Token correctamente";       
     }
 }

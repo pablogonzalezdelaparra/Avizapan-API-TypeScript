@@ -19,4 +19,14 @@ export class TokensService {
             .getMany()
         return tokens
     }
+
+    /* Insert Token */
+    async insertToken(token: any){
+        const action = this.TokenRepository
+            .createQueryBuilder()
+            .insert()
+            .into(Tokens)
+            .values([{token}])
+            .execute();
+    }
 }

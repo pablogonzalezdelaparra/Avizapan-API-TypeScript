@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { NotificationsService } from './notifications.service';
-
+import sendNotificationToApp from 'src/Components/fcm';
 
 @Controller('notifications')
 export class NotificationsController {
@@ -34,11 +34,19 @@ export class NotificationsController {
         return notifications;
     }
 
+    @Get("tokens")
+    async sayTokensFromNotifications(){
+        var tokens = await this.NotificationService.getTokensFromNotifications();
+        return tokens;
+    }
+
     /* Post a notification */
     @Post()
     async AddNotification(@Body() body) {
         console.log("The data is:", body.title, body.description, body.location, body.duration, body.adminId, body.categoryId)
         const action = this.NotificationService.insertNotification(body.title, body.description, body.location, body.duration, body.adminId, body.categoryId);
-        return "Notification was added succesfully";
+        var tokens = await this.NotificationService.getTokensFromNotifications();
+        sendNotificationToApp(tokens, body);
+        return "Notification was added successfully";
     }
 }

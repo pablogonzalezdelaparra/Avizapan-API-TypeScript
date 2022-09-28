@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Notifications } from './notifications.entity';
 import { Repository } from 'typeorm';
+import { Tokens } from 'src/tokens/tokens.entity';
 
 
 @Injectable()
@@ -9,6 +10,8 @@ export class NotificationsService {
     constructor(
         @InjectRepository(Notifications)
         private NotificationRepository: Repository<Notifications>,
+        @InjectRepository(Tokens)
+        private TokensRepository: Repository<Tokens>,
     ) { }
 
     /* Return all notifications */
@@ -67,6 +70,15 @@ export class NotificationsService {
                 }
             ])
             .execute();
+    }
+
+    /* Get Tokens from Tokens Repository */
+    async getTokensFromNotifications(){
+        const tokens = this.TokensRepository
+            .createQueryBuilder("token")
+            .getMany()
+        return tokens
+
     }
 
     /* Example of how to insert a notification 
