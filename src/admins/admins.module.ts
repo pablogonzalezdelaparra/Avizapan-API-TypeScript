@@ -9,11 +9,17 @@ import { Admins } from './admins.entity';
 
 //JWT
 import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './jwt.strategy';
+import { PassportModule } from '@nestjs/passport';
 import { secret } from 'src/Utils/constants';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Notifications, Categories, Admins]), JwtModule.register({secret, signOptions: { expiresIn: '1h'}})],
+  imports: [
+    TypeOrmModule.forFeature([Notifications, Categories, Admins]), 
+    PassportModule,
+    JwtModule.register({secret: secret, signOptions: { expiresIn: '1h'}}),
+  ],
   controllers: [AdminsController],
-  providers: [AdminsService]
+  providers: [AdminsService, JwtStrategy],
 })
 export class AdminsModule {}
