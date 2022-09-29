@@ -16,15 +16,13 @@ export class Notifications {
 
     @Column()
     location: number; //Cambiar el nombre a zipcode para evitar confundirnos
-
-    /**
-     * 
-     * @Column()
-     * longitude: number;
-     * 
-     * @Column()
-     * latitude: number;
-     */
+    
+    @Column()
+    longitude: number;
+      
+    @Column()
+    latitude: number;
+     
 
     @Column({
         type: 'datetime',
