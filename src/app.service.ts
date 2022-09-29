@@ -24,10 +24,10 @@ export class AppService {
   }
   if (maxval > 23){
     let resp = {
-      "title": "Pablito",
-      "description": "Que calor",
-      "location": 99892,
-      "duration": 64821,
+      "title": "Hola Vale",
+      "description": "¿Como estas?",
+      "location": 99999,
+      "duration": 12,
       "longitude": 1500,
       "latitude": 1600,
       "adminId": 1,
