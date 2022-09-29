@@ -8,8 +8,8 @@ export class AppService {
 
   constructor(private readonly httpService: HttpService) {}
 
-  @Cron('*/10 * * * * *')
-  async runEvery10Seconds() {
+  @Cron('*/* * 24 * * *')
+  async runEvery24Hours() {
   //console.log(this.getHello());
   const url = 'https://api.open-meteo.com/v1/forecast?latitude=19.4271&longitude=-99.1276&hourly=temperature_2m';
    const { data } = await firstValueFrom(this.httpService.get(url));
