@@ -19,10 +19,10 @@ import { ScheduleModule } from '@nestjs/schedule';
   imports: [ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: '157.230.12.204',
       port: 3306,
-      username: 'root',
-      password: '',
+      username: 'admin',
+      password: 'avizapan',
       database: 'avizapanDB',
       entities: [Admins, Categories, Notifications, Tokens],
       synchronize: true,
