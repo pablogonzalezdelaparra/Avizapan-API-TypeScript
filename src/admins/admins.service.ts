@@ -11,6 +11,7 @@ export class AdminsService {
     constructor(
         @InjectRepository(Admins)
         private AdminsRepository: Repository<Admins>,
+        private jwtService: JwtService
     ) { }
 
 
@@ -24,15 +25,15 @@ export class AdminsService {
     }
 
     /* Validate SignIn and Generate JWT */
-    async signin(username: any, password: any, jwt: JwtService): Promise<any> {
+    async signin(username: any, password: any): Promise<any> {
         const foundUser = await this.returnAdminAllowed(username);
         if (foundUser){
             const passwordBD = foundUser.password;
             if(bcrypt.compareSync(passwordBD, password)){
-                const payload = {id: foundUser.id};
+                const payload = {id: foundUser.id, username: username};
                 return {
                     id: foundUser.id,
-                    token: jwt.sign(payload)
+                    token: this.jwtService.sign(payload)
                 };
             }else{
                 return null;
