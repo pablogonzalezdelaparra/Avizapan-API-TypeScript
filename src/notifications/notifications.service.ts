@@ -38,8 +38,8 @@ export class NotificationsService {
     async returnCategoryNotification(categoryId) {
         const notifications = this.NotificationRepository
             .createQueryBuilder("notification")
-            .leftJoinAndSelect("notification.category", "category")
-            .where("category.id = :id", { id: categoryId})
+            //.leftJoinAndSelect("notification.category", "category")
+            .where("notification.id = :id", { id: categoryId})
             .getRawMany()
         return notifications
     }
