@@ -15,7 +15,16 @@ export class Notifications {
     description: string;
 
     @Column()
-    location: number;
+    location: number; //Cambiar el nombre a zipcode para evitar confundirnos
+
+    /**
+     * 
+     * @Column()
+     * longitude: number;
+     * 
+     * @Column()
+     * latitude: number;
+     */
 
     @Column({
         type: 'datetime',
@@ -24,12 +33,6 @@ export class Notifications {
 
     @Column()
     duration: number;
-
-    /* @Column()
-    admin_id: Admins
-    @ManyToOne(() => Admins, (admin) => admin.notifications)
-    @JoinColumn({name: "admin_id"})
-    admin: Admins */
 
     @ManyToOne(() => Admins, (admin) => admin.notifications)
     admin: Admins
