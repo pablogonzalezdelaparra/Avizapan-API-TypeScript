@@ -9,7 +9,7 @@ export class AppService {
   constructor(private readonly httpService: HttpService) {}
 
 
-  @Cron('* * 24 * * *')
+  //@Cron('10 * * * * *')
   async runEvery24Hours() {
   //console.log(this.getHello());
   const url = 'https://api.open-meteo.com/v1/forecast?latitude=19.4271&longitude=-99.1276&hourly=temperature_2m';
@@ -24,7 +24,7 @@ export class AppService {
   }
   if (maxval > 23){
     let resp = {
-      "title": "Ola de Calor",
+      "title": "Notificación",
       "description": "Que calor",
       "location": 99892,
       "duration": 64821,
