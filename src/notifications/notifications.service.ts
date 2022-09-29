@@ -40,7 +40,7 @@ export class NotificationsService {
             .createQueryBuilder("notification")
             .leftJoinAndSelect("notification.category", "category")
             .where("category.id = :id", { id: categoryId})
-            .getMany()
+            .getRawMany()
         return notifications
     }
 
@@ -54,7 +54,7 @@ export class NotificationsService {
     }
 
     /* Insert a notification */
-    async insertNotification(title: any, description: any, location: any/* -> Cambiar el nombre a zipcode*/, longitude: any, latitude: any , duration: any, adminId: any, categoryId: any) {
+    async insertNotification(title: any, description: any, location: any/* -> Cambiar el nombre a zipcode,*/,longitude: any, latitude: any , duration: any, adminId: any, categoryId: any) {
         const action = this.NotificationRepository
             .createQueryBuilder()
             .insert()
