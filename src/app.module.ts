@@ -14,9 +14,10 @@ import { TokensModule } from './tokens/tokens.module';
 import { Tokens } from './tokens/tokens.entity';
 
 import { ScheduleModule } from '@nestjs/schedule';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [ScheduleModule.forRoot(),
+  imports: [HttpModule, ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: '157.230.12.204',

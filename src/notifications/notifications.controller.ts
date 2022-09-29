@@ -9,6 +9,7 @@ export class NotificationsController {
     /* Get all notifications */
     @Get()
     async sayNotifications() {
+        console.log("hello")
         var notifications = await this.NotificationService.returnAllNotification();
         return notifications;
     }
