@@ -33,7 +33,7 @@ export class AppService {
       "adminId": 1,
       "categoryId": 1
     }
-    const url = 'https://avizapan-app-p6qc5.ondigitalocean.app/notifications/';
+    const url = 'https://avizapan-app-3s4eu.ondigitalocean.app/notifications/';
 
     console.log(resp)
     const { data } = await firstValueFrom(this.httpService.post(url, resp));
@@ -41,7 +41,7 @@ export class AppService {
 }
     
   getHello(): string {
-    return 'Welcome! Please go to this <a href="https://avizapan-app-p6qc5.ondigitalocean.app/api">link</a> for more information!'
+    return 'Welcome! Please go to this <a href="https://avizapan-app-3s4eu.ondigitalocean.app/api">link</a> for more information!'
   }
 
   
