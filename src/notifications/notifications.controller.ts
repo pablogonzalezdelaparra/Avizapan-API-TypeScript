@@ -46,7 +46,7 @@ export class NotificationsController {
         console.log("The data is:", body.title, body.description, body.location,body.latitude, body.longitude, body.duration, body.adminId, body.categoryId)
         const action = this.NotificationService.insertNotification(body.title, body.description, body.location, body.latitude, body.longitude, body.duration, body.adminId, body.categoryId);
         var tokens = await this.NotificationService.getTokensFromNotifications();
-        sendNotificationToApp(tokens, body);
+        //sendNotificationToApp(tokens, body);
         return "Notification was added successfully";
     }
 }
