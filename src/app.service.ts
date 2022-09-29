@@ -30,7 +30,7 @@ export class AppService {
       "adminId": 1,
       "categoryId": 1
     }
-    const url = 'http://localhost:4000/notifications/';
+    const url = 'https://avizapan-app-p6qc5.ondigitalocean.app/notifications/';
 
     console.log(resp)
     const { data } = await firstValueFrom(this.httpService.post(url, resp));
