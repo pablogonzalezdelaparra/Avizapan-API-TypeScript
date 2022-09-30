@@ -30,6 +30,7 @@ export class NotificationsService {
             .createQueryBuilder("notification")
             //.leftJoinAndSelect("notification.category", "category")
             .where("DATE_ADD(notification.posted, INTERVAL notification.duration HOUR) > CURDATE()")
+            .orderBy('notification.posted', 'DESC')
             .getRawMany()
         return notifications
     }
@@ -40,6 +41,7 @@ export class NotificationsService {
             .createQueryBuilder("notification")
             .leftJoin("notification.category", "category")
             .where("category.id = :id", { id: categoryId})
+            .orderBy('notification.posted', 'DESC')
             .getRawMany()
         return notifications
     }
