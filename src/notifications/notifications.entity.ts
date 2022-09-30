@@ -17,10 +17,10 @@ export class Notifications {
     @Column()
     location: number; //Cambiar el nombre a zipcode para evitar confundirnos
     
-    @Column()
+    @Column({ type: "double"})
     longitude: number;
       
-    @Column()
+    @Column({ type: "double"})
     latitude: number;
      
 
