@@ -29,7 +29,7 @@ export class NotificationsService {
         const notifications = this.NotificationRepository
             .createQueryBuilder("notification")
             //.leftJoinAndSelect("notification.category", "category")
-            //.where("DATE_ADD(notification.posted, INTERVAL notification.duration HOUR) > CURDATE()")
+            .where("DATE_ADD(notification.posted, INTERVAL notification.duration HOUR) > CURDATE()")
             .getRawMany()
         return notifications
     }
@@ -38,8 +38,8 @@ export class NotificationsService {
     async returnCategoryNotification(categoryId) {
         const notifications = this.NotificationRepository
             .createQueryBuilder("notification")
-            //.leftJoinAndSelect("notification.category", "category")
-            .where("notification.id = :id", { id: categoryId})
+            .leftJoin("notification.category", "category")
+            .where("category.id = :id", { id: categoryId})
             .getRawMany()
         return notifications
     }
