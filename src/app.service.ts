@@ -10,7 +10,7 @@ export class AppService {
 
 
   @Cron(CronExpression.EVERY_12_HOURS)
-  async runEvery24Hours() {
+  async runEvery12Hours() {
   //console.log(this.getHello());
   const url = 'https://api.open-meteo.com/v1/forecast?latitude=19.4271&longitude=-99.1276&hourly=temperature_2m';
    const { data } = await firstValueFrom(this.httpService.get(url));
@@ -24,20 +24,20 @@ export class AppService {
   }
   if (maxval > 23){
     let resp = {
-      "title": "Hola Vale",
-      "description": "¿Como estas?",
-      "location": 99999,
+      "title": "Se aproxima una ola de calor",
+      "description": "Se reportan temperaturas altas para los próximos 5 días en el municipio. Tome sus precauciones.",
+      "location": 52947,
       "duration": 12,
-      "longitude": 1500,
-      "latitude": 1600,
+      "longitude": 19.5630699,
+      "latitude": -99.2710063,
       "adminId": 1,
-      "categoryId": 1
+      "categoryId": 2
     }
+
+    //console.log(resp)
     const url = 'https://avizapan-app-3s4eu.ondigitalocean.app/notifications/';
     //const url = 'http://localhost:4000/notifications/';
 
-
-    console.log(resp)
     const { data } = await firstValueFrom(this.httpService.post(url, resp));
   }
 }
