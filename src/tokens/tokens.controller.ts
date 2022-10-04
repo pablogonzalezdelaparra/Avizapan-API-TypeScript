@@ -13,6 +13,14 @@ export class TokensController {
         return tokens;
     }
 
+    /*Get just the dates when the tokens were added */
+    @Get('date')
+    async sayDates(){
+        var dates = await this.TokenService.returnDateTokens();
+        return dates; 
+    }
+
+    /*Insert a token */
     @Post()
     async AddToken(@Body() body){
         const action = this.TokenService.insertToken(body.token);

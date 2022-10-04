@@ -10,7 +10,7 @@ export class TokensService {
         private TokenRepository: Repository<Tokens>,
     ) { }
 
-    /* Return all notifications */
+    /* Return all tokens */
     async returnAllTokens() {
         const tokens = this.TokenRepository
             .createQueryBuilder("token")
@@ -18,6 +18,15 @@ export class TokensService {
             /*.where("notification.id = :id", { id: 1 })*/
             .getMany()
         return tokens
+    }
+
+    /*Return just the dates of the tokens registered*/
+    async returnDateTokens(){
+        const dates = this.TokenRepository
+            .createQueryBuilder("token")
+            .select("token.added")
+            .getMany()
+        return dates
     }
 
     /* Insert Token */
