@@ -7,4 +7,9 @@ export class Tokens {
 
     @Column()
     token: string;
+
+    @Column({
+        type: 'datetime',
+        default: () => 'NOW()',})
+    added: Date;
 }
