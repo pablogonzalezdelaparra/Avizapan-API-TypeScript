@@ -1,5 +1,5 @@
 var FCM = require('fcm-node');
-var serverKey = 'AAAA2UWyjZs:APA91bFm5OIBbWniFq3IsPaVKP8GvtIS1RWaSfavTX4EmEQZcHh8PpIDtoMCBrGGK5E7mjYWOnMXrFpsixAHV7XNpVThTX3ztAO1WD5KYrlYjAbkp1Lkw6KPlP8soOtQ_44mCFNSrWW_';
+var serverKey = 'AAAAC2cvhdA:APA91bHl55AIsMCdFlq6_cZFR7KHP9XkpoiegeA5M6_qM8m-HYiKxC3CvMKXSQz3SPS2BTU48YIy0nPT-3wrcwaIYAJyRdqYrq3ZGmTPTrA5dyEeVpoEiXgYE4ZXlyNNjH5qFpMKsQCb';
 var fcm = new FCM(serverKey);
 
 function sendNotificationToApp(tokens, {title, description, categoryId}){
