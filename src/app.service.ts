@@ -26,10 +26,10 @@ export class AppService {
     let resp = {
       "title": "Se aproxima una ola de calor",
       "description": "Se reportan temperaturas altas para los próximos 5 días en el municipio. Tome sus precauciones.",
-      "location": 52947,
+      "location": 52987,
       "duration": 12,
-      "longitude": 19.5630699,
-      "latitude": -99.2710063,
+      "longitude": 19.5444457,
+      "latitude": -99.2355269,
       "adminId": 1,
       "categoryId": 2
     }
