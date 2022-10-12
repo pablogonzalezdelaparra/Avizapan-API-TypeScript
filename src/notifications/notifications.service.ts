@@ -41,6 +41,7 @@ export class NotificationsService {
         const notifications = this.NotificationRepository
             .createQueryBuilder("notification")
             .leftJoin("notification.category", "category")
+            .addSelect('DATE_ADD(notification.posted, INTERVAL -10 HOUR) AS notification_posted_2')
             .where("category.id = :id", { id: categoryId})
             .andWhere("DATE_ADD(notification.posted, INTERVAL notification.duration HOUR) > CURDATE()")
             .orderBy('notification.posted', 'DESC')
