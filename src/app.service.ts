@@ -28,8 +28,8 @@ export class AppService {
       "description": "Se reportan temperaturas altas para los próximos 5 días en el municipio. Tome sus precauciones.",
       "location": 52987,
       "duration": 12,
-      "longitude": 19.5444457,
-      "latitude": -99.2355269,
+      "longitude": -99.2355269,
+      "latitude": 19.5444457,
       "adminId": 1,
       "categoryId": 2
     }
